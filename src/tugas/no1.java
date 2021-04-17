@@ -1,23 +1,28 @@
 package tugas;
 public class no1 {
-    public static void main (String[] args) {
-        int[] data = {25,7,9,13,3};
-        for (int i=0; i<data.length; i++){
-           System.out.print(data[i]+"  ");
-    }
-        for (int i=1; i<data.length; i++) {
-            int key = data[i];
-            int j = i-1;
-            while ((j>=0) && (data[j]>key)) {
-                data[j+1] = data[j];
+    public static void insertionSort(int[] A){
+        for (int i=1; i<A.length; i++) {
+            int key = A[i];
+            int j=i-1;
+            while ((j>=0) && (A[j]>key)) {
+                A[j+1] = A[j];
                 j--;
             }
-            data [j+1]  = key;
+            A[j+1] = key;
         }
-        System.out.println("\nsorted by Kiki : ");
-        System.out.println("=== Insertion Sort ===");
+    }
+    public static void tampil(int data[]) {
         for (int i=0; i<data.length; i++){
-            System.out.print(data[i]+" ");
+            System.out.print(data[i] + " ");
         }
+        System.out.println();
+    }
+    public static void main (String[] args) {
+        int A[] = {25, 7, 9, 13, 3};
+        no1.tampil(A);
+        System.out.println("\nsorted by Kiki : ");
+        no1.insertionSort(A);
+        no1.tampil(A);
+        System.out.println("=== Insertion Sort ===");
     }
 }

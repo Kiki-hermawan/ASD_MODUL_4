@@ -1,35 +1,34 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package tugas;
-
-/**
- *
- * @author Kihrmwn
- */
 public class no3 {
-    public static void main(String[] args) {
-        int[] data = {25,7,9,13,3};
-        for (int i=0; i<data.length; i++){
-            System.out.print(data[i]+" ");
-        }
-        for (int i=0; i<data.length-1; i++){
-            int indeksKecil = i;
-            for (int j=i+1; j<data.length; j++){
-                if (data[j]<data[indeksKecil]){
-                    indeksKecil = j;
+    public static void selectionSort(int[] A) {
+       int smallIndex;
+       int pass, j, n = A.length;
+       int temp;
+       
+       for (pass=0; pass<n-1; pass++) {
+           smallIndex = pass;
+           for (j=pass + 1; j<n; j++) {
+               if (A[j]<A[smallIndex]) {
+                   smallIndex = j;
                 }
+                temp = A[pass];
+                A[pass] = A[smallIndex];
+                A[smallIndex] =  temp;
             }
-            int temp = data[i];
-            data[i] = data[indeksKecil];
-            data[indeksKecil] = temp;
         }
-        System.out.println("\nsorted by Kiki :");
-        System.out.println("=== Selection Sort ===");
+    }
+    public static void tampil(int data[]) {
         for (int i=0; i<data.length; i++){
-            System.out.print(data[i]+" ");
+            System.out.print(data[i] + " ");
         }
+        System.out.println();
+    }
+    public static void main (String[] args) {
+        int A[] = {25, 7, 9, 13, 3};
+        no3.tampil(A);
+        System.out.println("\nsorted by Kiki : ");
+        no3.selectionSort(A);
+        no3.tampil(A);
+        System.out.println("=== Selection Sort ===");
     }
 }
